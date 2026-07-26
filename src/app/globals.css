@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-base: #FFFCF7;
+    --bg-surface: #FFF4E6;
+    --text-ink: #2C2418;
+    --text-muted: #7A6E5D;
+    --brand-primary: #E8622C;
+    --brand-dark: #C44D1D;
+    --brand-text: #D4511C;
+    --teal-trust: #2E9B8F;
+    --honey-accent: #F5B942;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-ink);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-glass {
+    background: rgba(255, 252, 247, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .shadow-soft-subtle {
+    box-shadow: 0 2px 8px rgba(44, 36, 24, 0.06), 0 12px 32px rgba(44, 36, 24, 0.08);
+  }
+}
+
+/* Custom smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent layout shift from scrollbar */
+html {
+  color-scheme: light;
+}
