@@ -26,20 +26,20 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: `${BUSINESS.name} | Kids Gym & Daycare in Model Town, Lahore`,
-  description: `Model Town's premier preschool & daycare combining structured kids gym activities with Montessori-based early learning for children ages 1–8. Call ${BUSINESS.phoneDisplay}.`,
+  description: `Model Town's preschool & daycare combining structured kids gym activities with guided early learning for children ages 1–8. Call ${BUSINESS.phoneDisplay}.`,
   keywords: [
     "preschool in Model Town Lahore",
     "daycare Model Town",
     "daycare near me Lahore",
     "kids gym Lahore",
-    "montessori Model Town Lahore",
+    "preschool Model Town Lahore",
     "daycare for working mothers Lahore",
   ],
   authors: [{ name: BUSINESS.name }],
   metadataBase: new URL("https://kidsgym.pk"),
   openGraph: {
     title: BUSINESS.name,
-    description: "Model Town's premier kids gym, preschool, and daycare. Where active play meets early learning.",
+    description: "Model Town's trusted kids gym, preschool, and daycare. Where active play meets early learning.",
     url: "https://kidsgym.pk",
     siteName: BUSINESS.name,
     locale: "en_PK",

@@ -1,4 +1,4 @@
-import { Clock, Sun, Dumbbell, BookOpen, Utensils, Home } from "lucide-react";
+import { Sun, Dumbbell, BookOpen, Utensils, Home } from "lucide-react";
 
 export function DayInLifeSection() {
   const schedule = [
@@ -18,8 +18,8 @@ export function DayInLifeSection() {
     },
     {
       time: "10:30 AM – 12:00 PM",
-      title: "Montessori Learning & Phonics",
-      description: "Hands-on alphabet phonics, counting games, sensory stations, and storytelling circle.",
+      title: "Hands-On Learning & Phonics",
+      description: "Alphabet phonics, counting games, sensory stations, and storytelling circle.",
       icon: BookOpen,
       color: "text-teal-trust bg-teal-trust/10",
     },
@@ -33,7 +33,7 @@ export function DayInLifeSection() {
     {
       time: "1:00 PM – 5:00 PM",
       title: "Extended Daycare Rest & Care",
-      description: "Quiet rest/nap time, lunch, supervised indoor play, art activities, and evening pickup by 5:00 PM.",
+      description: "Quiet rest/nap time, supervised indoor play, art activities, and evening pickup by 5:00 PM.",
       icon: Home,
       color: "text-teal-trust bg-teal-trust/10",
     },

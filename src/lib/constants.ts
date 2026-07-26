@@ -1,7 +1,7 @@
 export const BUSINESS = {
   name: "Kids' Gym Preschool & Daycare",
   nameRendered: "Kids’ Gym Preschool & Daycare",
-  tagline: "The Only Preschool in Model Town with a Built-In Kids Gym",
+  tagline: "Nature-Based Early Learning & Play-Led Preschool in Model Town, Lahore",
   address: "Plot # 132, 3, Block D, Model Town, Lahore 54700, Pakistan",
   coordinates: {
     lat: 31.4908916,
@@ -47,7 +47,7 @@ export const PROGRAMS = [
     timing: "8:00 AM – 5:00 PM",
     description: "Nurturing infant care focusing on sensory development, safe sleeping routines, and loving individual attention.",
     badge: "Daycare",
-    highlights: ["Sensory exploration", "Strict sanitization", "Attentive care routines"],
+    highlights: ["Sensory exploration", "Attentive care routines"],
   },
   {
     id: "playgroup",
@@ -63,7 +63,7 @@ export const PROGRAMS = [
     title: "Nursery",
     age: "3 – 4 yrs",
     timing: "Half-day morning session",
-    description: "Hands-on Montessori-inspired learning, early phonics, creative arts, and gross motor skill refinement.",
+    description: "Hands-on guided learning, early phonics, creative arts, and gross motor skill refinement.",
     badge: "Preschool",
     highlights: ["Early phonics & counting", "Hands-on activity stations", "Gymnastics & coordination"],
   },
@@ -81,18 +81,18 @@ export const PROGRAMS = [
     title: "Daycare (Extended)",
     age: "2 – 6 yrs",
     timing: "After-preschool wraparound (till 5:00 PM)",
-    description: "Safe, home-like after-school environment with nutritious meals, rest routines, and supervised play.",
+    description: "Safe, home-like after-school environment with rest routines and supervised play.",
     badge: "Wraparound Care",
-    highlights: ["Rest & meal routines", "Supervised free play", "Peace of mind for working parents"],
+    highlights: ["Rest & snack routines", "Supervised free play", "Peace of mind for working parents"],
   },
   {
     id: "kids-gym",
     title: "Kids Gym",
     age: "1 – 8 yrs",
     timing: "Integrated & Standalone Classes",
-    description: "Our signature physical development program using child-safe gymnastics apparatus to build strength & posture.",
+    description: "Our signature physical development program using child-safe play apparatus to build strength & posture.",
     badge: "Signature Gym",
-    highlights: ["Physical gymnastics apparatus", "Posture & core strength", "Boosts confidence & focus"],
+    highlights: ["Physical play apparatus", "Posture & core strength", "Boosts confidence & focus"],
   },
 ] as const;
 

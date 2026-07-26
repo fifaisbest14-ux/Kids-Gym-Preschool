@@ -1,16 +1,16 @@
-import { Dumbbell, Smile, Sparkles, ShieldCheck } from "lucide-react";
+import { Dumbbell, Smile, Sparkles } from "lucide-react";
 
 export function WhyUsSection() {
   const pillars = [
     {
       icon: Dumbbell,
       title: "Built-In Kids Gym Integration",
-      description: "Unlike traditional daycares, every child engages in structured physical gymnastics apparatus play that builds posture, core strength, and motor confidence.",
+      description: "Unlike traditional daycares, every child engages in structured physical apparatus play that builds posture, core strength, and motor confidence.",
       accent: "border-brand bg-brand/5 text-brand",
     },
     {
       icon: Sparkles,
-      title: "Hands-On Montessori Learning",
+      title: "Hands-On Guided Learning",
       description: "Activity-based phonics, early counting, creative arts, and sensory exploration that keep young minds excited and school-ready.",
       accent: "border-teal-trust bg-teal-trust/5 text-teal-trust",
     },

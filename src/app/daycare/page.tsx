@@ -5,7 +5,7 @@ import { LeadForm } from "@/components/lead-form/LeadForm";
 
 export const metadata = {
   title: `Daycare in Model Town, Lahore | Extended Daycare for Working Parents`,
-  description: "Premier daycare in Model Town, Lahore. Safe, home-like environment, quiet rest routines, nutritious snacks, and supervised play till 5:00 PM.",
+  description: "Daycare in Model Town, Lahore. Safe, home-like environment, quiet rest routines, and supervised play till 5:00 PM.",
 };
 
 export default function DaycarePage() {
@@ -18,20 +18,20 @@ export default function DaycarePage() {
     },
     {
       icon: Utensils,
-      title: "Nutritious Snack & Meal Routines",
-      description: "Scheduled mealtime routines with handwashing supervision and healthy eating habits.",
+      title: "Scheduled Snack & Rest Routines",
+      description: "Structured snack times and rest routines supervised by attentive caregivers.",
       color: "text-teal-trust bg-teal-trust/10",
     },
     {
       icon: Moon,
       title: "Peaceful Nap & Rest Time",
-      description: "Quiet, hygienic sleeping area with individual bedding so children wake up refreshed.",
+      description: "Quiet sleeping area so children wake up refreshed.",
       color: "text-honey-accent bg-honey-accent/20",
     },
     {
       icon: Heart,
       title: "Attentive Personal Care",
-      description: "Patient caregivers who monitor your child's emotional wellbeing and social comfort.",
+      description: "Caregivers who monitor your child's emotional wellbeing and social comfort.",
       color: "text-brand-dark bg-brand-dark/10",
     },
   ];
@@ -52,7 +52,7 @@ export default function DaycarePage() {
             </h1>
 
             <p className="text-base sm:text-lg text-ink-muted leading-relaxed">
-              Designed specifically for working parents in Lahore. Our extended daycare provides a nurturing, structured environment with quiet rest routines, nutritious snacks, and active gym play until 5:00 PM.
+              Designed specifically for working parents in Lahore. Our extended daycare provides a nurturing, structured environment with quiet rest routines and active gym play until 5:00 PM.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -100,7 +100,7 @@ export default function DaycarePage() {
                 <span className="font-bold text-teal-trust">Block D, Model Town, Lahore</span>
               </li>
               <li className="flex justify-between py-2">
-                <span className="text-ink-muted">Meals &amp; Rest:</span>
+                <span className="text-ink-muted">Snacks &amp; Rest:</span>
                 <span className="font-bold">Included in Daily Routine</span>
               </li>
             </ul>

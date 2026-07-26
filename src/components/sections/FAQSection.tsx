@@ -26,11 +26,11 @@ export function FAQSection() {
     },
     {
       q: "What age groups are accepted for preschool and daycare?",
-      a: `We cater to children from ages 1 to 8 years across our programs: Playgroup (2–3 yrs), Nursery (3–4 yrs), Prep/KG (4–5 yrs), Extended Daycare (2–6 yrs), and Kids Gym physical classes (1–8 yrs). Contact us directly for specific infant care inquiries.`,
+      a: `We cater to children from ages 2 to 9 years across our programs: Playgroup (2–3 yrs), Nursery (3–4 yrs), Prep/KG (4–5 yrs), Extended Daycare, and Kids Gym physical classes. Contact us directly for specific age inquiries.`,
     },
     {
-      q: "What makes Kids’ Gym Preschool different from other daycares in Model Town?",
-      a: `Our primary differentiator is our built-in Kids Gym! Every child receives daily structured gymnastics apparatus play designed to improve core strength, posture, and motor coordination alongside traditional Montessori phonics and early education.`,
+      q: "What makes Kids’ Gym Preschool special?",
+      a: `Our differentiator is our built-in Kids Gym! Every child receives structured gymnastics apparatus play designed to improve core strength, posture, and motor coordination alongside early phonics and hands-on learning.`,
     },
   ];
 

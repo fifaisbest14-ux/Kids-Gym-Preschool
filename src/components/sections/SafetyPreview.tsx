@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck, Heart, Sparkles, ArrowRight } from "lucide-react";
+import { ShieldCheck, Heart, Sparkles } from "lucide-react";
 
 export function SafetyPreview() {
   return (
@@ -18,7 +18,7 @@ export function SafetyPreview() {
             </h2>
 
             <p className="text-base text-ink-muted leading-relaxed">
-              We understand that leaving your child in someone else&apos;s care requires absolute trust. Our Model Town facility is designed with clean, sanitized play spaces, child-first routines, and open communication with parents.
+              We understand that leaving your child in someone else&apos;s care requires absolute trust. Our Model Town facility is designed with clean play spaces, child-first routines, and open communication with parents.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -33,8 +33,8 @@ export function SafetyPreview() {
               <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-surface">
                 <Sparkles className="w-5 h-5 text-teal-trust shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-heading font-bold text-sm text-ink">Daily Sanitization</h4>
-                  <p className="text-xs text-ink-muted mt-0.5">Clean gymnastics apparatus, play mats, and learning tools.</p>
+                  <h4 className="font-heading font-bold text-sm text-ink">Clean &amp; Well-Maintained</h4>
+                  <p className="text-xs text-ink-muted mt-0.5">Play apparatus and learning spaces kept clean daily.</p>
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@ export function SafetyPreview() {
                 href="/safety"
                 className="inline-flex items-center gap-2 text-sm font-bold text-teal-trust hover:underline"
               >
-                <span>Read our full Safety &amp; Facility Standards &rarr;</span>
+                <span>Read our full Safety &amp; Staff Ratio Standards &rarr;</span>
               </Link>
             </div>
           </div>

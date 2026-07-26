@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, Building2, Dumbbell, BookOpen, Star, Calendar } from "lucide-react";
+import { Heart, Building2, Dumbbell, Star, Calendar } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata = {
@@ -21,7 +21,7 @@ export default function AboutPage() {
             Nurturing Active Bodies &amp; Confident Minds
           </h1>
           <p className="text-base text-ink-muted leading-relaxed">
-            Founded with a vision to revolutionize early childhood education in Lahore by combining physical gymnastics fitness with hands-on Montessori learning.
+            Founded with a vision to combine physical gymnastics fitness with hands-on early childhood education.
           </p>
         </div>
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
               We believe that early childhood should be filled with joyful movement, curiosity, and emotional security. Traditional preschool classrooms keep children seated for long hours; at Kids’ Gym, we know that young brains learn best when their bodies are active.
             </p>
             <p className="text-sm sm:text-base text-ink-muted leading-relaxed">
-              Since {BUSINESS.operatingSince}, our Model Town branch has welcomed hundreds of toddlers and pre-schoolers, maintaining a proud <strong className="text-ink">{BUSINESS.googleRating}★ Google Rating</strong> across {BUSINESS.googleReviewCount}+ real parent reviews.
+              Since {BUSINESS.operatingSince}, our Model Town branch has welcomed toddlers and pre-schoolers, maintaining a proud <strong className="text-ink">{BUSINESS.googleRating}★ Google Rating</strong> across {BUSINESS.googleReviewCount}+ real parent reviews.
             </p>
           </div>
 

@@ -1,31 +1,19 @@
 import Link from "next/link";
-import { ShieldCheck, Heart, Sparkles, Building2, Calendar, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Calendar, Users } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata = {
   title: `Safety & Facilities | ${BUSINESS.name}`,
-  description: "Child safety, hygiene protocols, and facility standards at Kids' Gym Preschool & Daycare in Model Town, Lahore.",
+  description: "Safety protocols and ratio standards at Kids' Gym Preschool & Daycare in Model Town, Lahore.",
 };
 
 export default function SafetyPage() {
-  const safetyProtocols = [
-    {
-      title: "Clean & Sanitized Play Equipment",
-      description: "Our kids gym apparatus, play mats, and classroom learning tools undergo regular cleaning and sanitization routines.",
-    },
-    {
-      title: "Homely & Nurturing Staff",
-      description: "Caregivers and teachers are selected for their patient, attentive attitude towards young children, fostering a warm home-like atmosphere.",
-    },
-    {
-      title: "Child-Safe Soft Play Flooring",
-      description: "Kids gym spaces feature high-density shock-absorbing mats designed specifically to protect toddlers during physical play.",
-    },
-    {
-      title: "Transparent Parent Communication",
-      description: "We maintain an open-door policy for parents and communicate regularly regarding daily routines, eating habits, and milestone progress.",
-    },
-  ];
+  /*
+    {{NEEDS_CLIENT_INPUT: CCTV installed and monitored? Y/N}}
+    {{NEEDS_CLIENT_INPUT: Controlled secure entry/exit? Y/N}}
+    {{NEEDS_CLIENT_INPUT: Staff trained in paediatric first aid? Y/N}}
+    {{NEEDS_CLIENT_INPUT: Staff background/reference checks? Y/N}}
+  */
 
   return (
     <div className="py-12 sm:py-20 bg-base">
@@ -39,34 +27,38 @@ export default function SafetyPage() {
           </div>
 
           <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink">
-            Our Commitment to Safety &amp; Comfort
+            Our Safety &amp; Staff Ratio Standards
           </h1>
 
           <p className="text-base text-ink-muted leading-relaxed">
-            We prioritize creating a clean, healthy, and emotionally supportive environment for every child entrusted to our care in Model Town.
+            We maintain high supervision standards for every child at our Model Town branch.
           </p>
         </div>
 
-        {/* Protocols Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {safetyProtocols.map((p, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-card border border-surface shadow-card space-y-3">
-              <div className="flex items-center gap-2 text-teal-trust font-bold text-base">
-                <CheckCircle2 className="w-5 h-5 shrink-0" />
-                <h3 className="font-heading font-extrabold text-xl text-ink">{p.title}</h3>
-              </div>
-              <p className="text-sm text-ink-muted leading-relaxed pl-7">{p.description}</p>
+        {/* Confirmed Standards Grid */}
+        <div className="max-w-2xl mx-auto bg-white p-8 rounded-card border border-surface shadow-card space-y-6">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-teal-trust/10 text-teal-trust flex items-center justify-center shrink-0">
+              <Users className="w-6 h-6" />
             </div>
-          ))}
+            <div className="space-y-1">
+              <h3 className="font-heading font-extrabold text-xl text-ink">
+                Child-to-Teacher Ratio ({BUSINESS.childTeacherRatio})
+              </h3>
+              <p className="text-sm text-ink-muted leading-relaxed">
+                We maintain an attentive {BUSINESS.childTeacherRatio} child-to-teacher ratio in our preschool classes to ensure personalized guidance and constant supervision.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Tour CTA */}
         <div className="bg-surface p-8 sm:p-10 rounded-card border border-brand/10 text-center space-y-4 max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-2xl text-ink">
-            Inspect Our Facility in Person
+            Inspect Our Branch in Person
           </h2>
           <p className="text-sm text-ink-muted leading-relaxed">
-            We invite parents to visit our Model Town branch, walk through our kids gym and classroom spaces, and meet our care staff.
+            We invite parents to visit our Model Town branch, meet our teaching staff, and inspect our facility firsthand.
           </p>
           <div className="pt-2">
             <Link

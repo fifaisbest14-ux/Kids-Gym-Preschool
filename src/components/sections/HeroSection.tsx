@@ -26,9 +26,9 @@ export function HeroSection() {
               <span className="text-teal-trust font-bold">• Model Town</span>
             </div>
 
-            {/* Main Headline (Option 3 - Recommended Differentiator) */}
+            {/* Main Headline */}
             <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink leading-[1.15] text-balance">
-              The Only Preschool in Model Town with a{" "}
+              Preschool &amp; Daycare in Model Town with a{" "}
               <span className="text-brand underline decoration-honey-accent decoration-4 underline-offset-4">
                 Built-In Kids Gym
               </span>
@@ -36,7 +36,7 @@ export function HeroSection() {
 
             {/* Subheadline */}
             <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Build physical confidence, social skills, and school readiness in a warm, activity-based environment parents love. Serving families since {BUSINESS.operatingSince}.
+              Build physical confidence, social skills, and school readiness in a warm, activity-based environment parents love. Serving families in Model Town, Lahore.
             </p>
 
             {/* Conversion CTA Group */}
@@ -104,7 +104,7 @@ export function HeroSection() {
                     <h3 className="font-heading font-extrabold text-base text-ink">
                       Active Early Years
                     </h3>
-                    <p className="text-xs text-ink-muted">Ages 1 to 8 Years • Model Town</p>
+                    <p className="text-xs text-ink-muted">Early Childhood • Model Town</p>
                   </div>
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-teal-trust/10 text-teal-trust font-bold text-xs">
@@ -116,10 +116,10 @@ export function HeroSection() {
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-surface p-3.5 rounded-xl space-y-1">
                   <span className="text-xs font-bold text-brand block">🤸‍♂️ Kids Gym</span>
-                  <p className="text-[11px] text-ink-muted">Motor skills, core posture &amp; agility apparatus</p>
+                  <p className="text-[11px] text-ink-muted">Motor skills, core posture &amp; agility play</p>
                 </div>
                 <div className="bg-surface p-3.5 rounded-xl space-y-1">
-                  <span className="text-xs font-bold text-teal-trust block">🎨 Montessori</span>
+                  <span className="text-xs font-bold text-teal-trust block">🎨 Guided Learning</span>
                   <p className="text-[11px] text-ink-muted">Activity-based learning &amp; early phonics</p>
                 </div>
                 <div className="bg-surface p-3.5 rounded-xl space-y-1">
