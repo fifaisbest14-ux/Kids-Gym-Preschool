@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Dumbbell, ShieldCheck, Sparkles, CheckCircle2, ArrowRight, MessageCircle, Calendar } from "lucide-react";
+import { Dumbbell, Sparkles, CheckCircle2, ArrowRight, MessageCircle } from "lucide-react";
 import { BUSINESS, buildWhatsAppUrl } from "@/lib/constants";
+import { MediaImage } from "@/components/media/MediaImage";
 
 export const metadata = {
   title: `Kids Gym & Physical Gymnastics in Model Town, Lahore | ${BUSINESS.name}`,
-  description: "Our signature kids gym program in Model Town, Lahore. Child-safe gymnastics apparatus, motor skill development, posture, and core strength for ages 1–8.",
+  description: "Our signature kids gym program in Model Town, Lahore. Child-safe gymnastics apparatus, motor skill development, posture, and core strength for ages 2–9.",
 };
 
 export default function KidsGymPage() {
@@ -32,40 +33,52 @@ export default function KidsGymPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Page Hero */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
-            <Dumbbell className="w-4 h-4" />
-            <span>Our Core Differentiator</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 text-center lg:text-left space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
+              <Dumbbell className="w-4 h-4" />
+              <span>Our Core Differentiator</span>
+            </div>
+
+            <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink">
+              Kids Gym &amp; Physical Gymnastics Classes
+            </h1>
+
+            <p className="text-base sm:text-lg text-ink-muted leading-relaxed">
+              Model Town early learning center with a dedicated indoor Kids Gym. Available as an integrated daily program and standalone physical classes.
+            </p>
+
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a
+                href={buildWhatsAppUrl("Assalam-o-Alaikum, I want to book a Trial Kids Gym Class for Rs 1,500.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand-dark text-white font-heading font-extrabold text-sm rounded-pill shadow-soft-subtle transition-all flex items-center justify-center gap-2"
+              >
+                <Sparkles className="w-4 h-4 text-honey-accent" />
+                <span>Book Trial Class — Rs 1,500</span>
+              </a>
+
+              <a
+                href={buildWhatsAppUrl("Assalam-o-Alaikum, please send fee details for Kids Gym standalone classes.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-7 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-heading font-extrabold text-sm rounded-pill transition-all flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5 fill-current" />
+                <span>Get Gym Fees on WhatsApp</span>
+              </a>
+            </div>
           </div>
 
-          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink">
-            Kids Gym &amp; Physical Gymnastics Classes
-          </h1>
-
-          <p className="text-base sm:text-lg text-ink-muted leading-relaxed">
-            The only early learning center in Model Town with a dedicated indoor Kids Gym. Available as an integrated daily preschool program and as standalone physical classes.
-          </p>
-
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={buildWhatsAppUrl("Assalam-o-Alaikum, I want to book a Trial Kids Gym Class for Rs 1,500.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand-dark text-white font-heading font-extrabold text-sm rounded-pill shadow-soft-subtle transition-all flex items-center justify-center gap-2"
-            >
-              <Sparkles className="w-4 h-4 text-honey-accent" />
-              <span>Book Trial Class — Rs 1,500</span>
-            </a>
-
-            <a
-              href={buildWhatsAppUrl("Assalam-o-Alaikum, please send fee details for Kids Gym standalone classes.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-7 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-heading font-extrabold text-sm rounded-pill transition-all flex items-center justify-center gap-2"
-            >
-              <MessageCircle className="w-5 h-5 fill-current" />
-              <span>Get Gym Fees on WhatsApp</span>
-            </a>
+          <div className="lg:col-span-5">
+            <MediaImage
+              slot="program-nature"
+              aspectRatio="aspect-[16/9]"
+              priority={true}
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="rounded-card border border-surface shadow-floating"
+            />
           </div>
         </div>
 
