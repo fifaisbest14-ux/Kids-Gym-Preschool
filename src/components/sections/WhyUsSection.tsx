@@ -23,8 +23,15 @@ export function WhyUsSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-surface/50 border-y border-brand/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 bg-surface/50 border-y border-brand/10 overflow-hidden">
+      {/* Low-opacity ambient sand texture background */}
+      <div
+        className="absolute inset-0 opacity-[0.05] bg-cover bg-center pointer-events-none"
+        style={{ backgroundImage: "url('/images/textures/sand.jpg')" }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <span className="px-3.5 py-1.5 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
@@ -44,7 +51,7 @@ export function WhyUsSection() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-card p-8 border border-surface shadow-card hover:shadow-floating transition-all space-y-4"
+                className="bg-white/95 backdrop-blur-sm rounded-card p-8 border border-surface shadow-card hover:shadow-floating transition-all space-y-4"
               >
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${pillar.accent}`}>
                   <Icon className="w-6 h-6" />

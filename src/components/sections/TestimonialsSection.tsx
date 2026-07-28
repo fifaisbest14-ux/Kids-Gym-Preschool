@@ -6,8 +6,15 @@ export function TestimonialsSection() {
   const reviews: Array<{ name: string; role: string; text: string; rating: number }> = [];
 
   return (
-    <section className="py-16 sm:py-24 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
+      {/* Low-opacity ambient leaf texture background */}
+      <div
+        className="absolute inset-0 opacity-[0.04] bg-cover bg-center pointer-events-none"
+        style={{ backgroundImage: "url('/images/textures/leaves.jpg')" }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
@@ -31,7 +38,7 @@ export function TestimonialsSection() {
             {reviews.map((rev, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-card p-6 sm:p-8 border border-surface shadow-card space-y-4"
+                className="bg-white/95 backdrop-blur-sm rounded-card p-6 sm:p-8 border border-surface shadow-card space-y-4"
               >
                 <div className="flex text-honey-accent">
                   {[...Array(rev.rating)].map((_, i) => (
@@ -56,7 +63,7 @@ export function TestimonialsSection() {
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-card p-8 sm:p-12 border border-surface shadow-card text-center max-w-2xl mx-auto space-y-4">
+          <div className="bg-white/95 backdrop-blur-sm rounded-card p-8 sm:p-12 border border-surface shadow-card text-center max-w-2xl mx-auto space-y-4">
             <div className="flex justify-center text-honey-accent">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-6 h-6 fill-current" />
@@ -77,7 +84,7 @@ export function TestimonialsSection() {
             href={BUSINESS.mapsLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-pill bg-surface hover:bg-surface/80 border border-brand/20 text-brand-text font-bold text-xs transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-pill bg-surface hover:bg-surface/80 border border-brand/20 text-brand-text font-bold text-xs transition-colors shadow-sm"
           >
             <span>Read all 35 Google Reviews on Maps</span>
             <ExternalLink className="w-4 h-4" />
