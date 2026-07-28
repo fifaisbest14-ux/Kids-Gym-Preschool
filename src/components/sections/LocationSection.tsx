@@ -3,6 +3,8 @@ import { BUSINESS, LAHORE_AREAS } from "@/lib/constants";
 import { MediaImage } from "@/components/media/MediaImage";
 
 export function LocationSection() {
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${BUSINESS.coordinates.lat},${BUSINESS.coordinates.lng}&hl=en&z=16&output=embed`;
+
   return (
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,7 +102,7 @@ export function LocationSection() {
             <div className="relative w-full h-[400px] sm:h-[480px] rounded-card overflow-hidden border border-surface shadow-floating">
               <iframe
                 title="Kids' Gym Preschool & Daycare Location Map"
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.607421875!2d${BUSINESS.coordinates.lng}!3d${BUSINESS.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391905dfdf9d5c41%3A0x772ad7be011e3562!2sKids&#39;%20Gym%20Preschool%20%26%20Daycare!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk`}
+                src={mapEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
