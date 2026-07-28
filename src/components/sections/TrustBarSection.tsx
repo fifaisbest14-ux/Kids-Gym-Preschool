@@ -12,7 +12,7 @@ export function TrustBarSection() {
     {
       icon: Building2,
       title: "Model Town Branch",
-      description: `Serving local families since ${BUSINESS.operatingSince}`,
+      description: "Convenient location in Model Town",
       color: "text-teal-trust",
     },
     {

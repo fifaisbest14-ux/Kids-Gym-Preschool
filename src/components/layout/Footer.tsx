@@ -14,7 +14,7 @@ export function Footer() {
               {BUSINESS.nameRendered}
             </h3>
             <p className="text-sm text-base/80 leading-relaxed">
-              Model Town’s trusted early learning center &amp; kids gym. Nurturing active bodies and happy, confident minds since {BUSINESS.operatingSince}.
+              Model Town’s trusted early learning center &amp; kids gym. Nurturing active bodies and happy, confident minds.
             </p>
             <div className="flex items-center gap-2 pt-2">
               <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-honey-accent text-ink">
@@ -83,7 +83,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/daycare" className="hover:text-brand transition-colors">
-                  Extended Daycare (2 – 6 yrs)
+                  Extended Daycare (2 – 9 yrs)
+                </Link>
+              </li>
+              <li>
+                <Link href="/special-needs-support" className="hover:text-brand transition-colors">
+                  Special Support (ASD &amp; ADHD)
                 </Link>
               </li>
               <li>

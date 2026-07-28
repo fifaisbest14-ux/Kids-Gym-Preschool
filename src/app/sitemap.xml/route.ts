@@ -7,6 +7,7 @@ export async function GET() {
     "",
     "/programs",
     "/daycare",
+    "/special-needs-support",
     "/kids-gym",
     "/about",
     "/safety",
@@ -25,7 +26,7 @@ export async function GET() {
       <loc>${baseUrl}${route}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
       <changefreq>${route === "" ? "daily" : "weekly"}</changefreq>
-      <priority>${route === "" ? "1.0" : route === "/daycare" || route === "/programs" ? "0.9" : "0.8"}</priority>
+      <priority>${route === "" ? "1.0" : route === "/daycare" || route === "/programs" || route === "/special-needs-support" ? "0.9" : "0.8"}</priority>
     </url>`
     )
     .join("")}

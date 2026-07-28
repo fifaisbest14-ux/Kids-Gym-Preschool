@@ -14,6 +14,7 @@ export function Navbar() {
     { href: "/", label: "Home" },
     { href: "/programs", label: "Programs" },
     { href: "/daycare", label: "Daycare" },
+    { href: "/special-needs-support", label: "Special Support" },
     { href: "/kids-gym", label: "Kids Gym" },
     { href: "/about", label: "About" },
     { href: "/safety", label: "Safety" },

@@ -1,8 +1,18 @@
+// {{NEEDS_CLIENT_INPUT: CONFIRM PREMISES ADDRESS.
+//  Google Business Profile: Plot # 132, Block D, Model Town (31.4908916, 74.320072)
+//  kidsgym's own website:   Plot # 134, Block J, Model Town (31.497125, 74.33174)
+//  These are ~1km apart. Whichever is current, the other listing must be corrected —
+//  a wrong map pin sends parents to the wrong gate, and inconsistent NAP damages
+//  local search ranking. BLOCKS: LocalBusiness schema, map embed, directions CTA. }}
+
+// {{NEEDS_CLIENT_INPUT: FOUNDING YEAR. Your website says "Since 2013, Kids' Gym has developed…". You told us 2020. Which year did THIS centre in Model Town open? Needed for the LocalBusiness schema and the "serving families since" badge.}}
+
+// {{NEEDS_CLIENT_INPUT: INSTAGRAM HANDLES. Two handles linked on your site: @kidsgympreschool and @kidsgympreschooldaycare. Confirm which is current.}}
+
 export const BUSINESS = {
   name: "Kids' Gym Preschool & Daycare",
   nameRendered: "Kids’ Gym Preschool & Daycare",
   tagline: "Nature-Based Early Learning & Play-Led Preschool in Model Town, Lahore",
-  // Address B3 Note: Google Business Profile says Block D (Plot 132), owner website says Block J (Plot 134).
   address: "Plot # 132, 3, Block D, Model Town, Lahore 54700, Pakistan",
   blockJAddress: "Plot # 134, Block J, Model Town, Lahore, Pakistan",
   coordinates: {
@@ -14,9 +24,8 @@ export const BUSINESS = {
   phoneDisplay: "0333 313 8985",
   phoneE164: "+923333138985",
   whatsAppE164: "923333138985",
+  email: "kidsgympk@gmail.com",
   hoursDisplay: "Mon-Fri 8:00am - 5:00pm | Sat & Sun CLOSED",
-  // P1.4 / B4 Context: Owner's site says "Since 2013". Client input needed to confirm exact year.
-  operatingSince: "2013", 
   googleRating: 4.5,
   googleReviewCount: 35,
   childTeacherRatio: "10:1",
