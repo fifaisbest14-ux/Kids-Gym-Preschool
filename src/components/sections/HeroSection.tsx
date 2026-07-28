@@ -1,150 +1,128 @@
 import Link from "next/link";
-import { Star, ShieldCheck, Dumbbell, Calendar, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Star, ShieldCheck, Sparkles, MessageCircle, Calendar } from "lucide-react";
 import { BUSINESS, buildWhatsAppUrl } from "@/lib/constants";
+import { MediaImage } from "@/components/media/MediaImage";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-surface/60 via-base to-base pt-10 pb-16 lg:pt-16 lg:pb-24">
-      {/* Decorative background grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#E8622C08_1px,transparent_1px),linear-gradient(to_bottom,#E8622C08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section className="relative bg-base pt-6 pb-12 sm:pt-12 sm:pb-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Copy & Conversion Hierarchy */}
+          {/* Left Column: Copy & High-Intent CTAs */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
-            {/* Verified Google Social Proof Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-surface shadow-soft-subtle text-xs font-semibold text-ink mx-auto lg:mx-0">
-              <div className="flex text-honey-accent">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-              </div>
-              <span className="font-bold">{BUSINESS.googleRating}★</span>
-              <span className="text-ink-muted">({BUSINESS.googleReviewCount} Google Reviews)</span>
-              <span className="text-teal-trust font-bold">• Model Town</span>
+            {/* Top Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+              <span className="px-3.5 py-1.5 rounded-full bg-brand/10 text-brand font-heading font-extrabold text-xs tracking-wider uppercase flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Now Enrolling for 2026</span>
+              </span>
+
+              <a
+                href={BUSINESS.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 rounded-full bg-honey-accent/20 text-ink font-heading font-bold text-xs flex items-center gap-1.5 hover:bg-honey-accent/30 transition-colors"
+              >
+                <Star className="w-3.5 h-3.5 text-brand fill-current" />
+                <span>{BUSINESS.googleRating}★ on Google ({BUSINESS.googleReviewCount} reviews)</span>
+              </a>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink leading-[1.15] text-balance">
-              Preschool &amp; Daycare in Model Town with a{" "}
-              <span className="text-brand underline decoration-honey-accent decoration-4 underline-offset-4">
-                Built-In Kids Gym
-              </span>
+            {/* H1 Headline */}
+            <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl text-ink leading-[1.15] tracking-tight">
+              Preschool &amp; Daycare in Model Town with a Built-In Kids Gym
             </h1>
 
-            {/* Subheadline */}
+            {/* Subheading */}
             <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Build physical confidence, social skills, and school readiness in a warm, activity-based environment parents love. Serving families in Model Town, Lahore.
+              Model Town&apos;s trusted early childhood centre. Combining outdoor nature discovery, guided learning, and daily kids gym physical apparatus play for children ages 2 to 9.
             </p>
 
-            {/* Conversion CTA Group */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
-              
-              {/* Primary CTA */}
+            {/* High-Intent Conversion Buttons */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+              <a
+                href={buildWhatsAppUrl("Assalam-o-Alaikum, I am inquiring about admissions and 2026 fee details.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-7 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-heading font-extrabold text-sm rounded-pill shadow-soft-subtle transition-all flex items-center justify-center gap-2 transform active:scale-95"
+              >
+                <MessageCircle className="w-5 h-5 fill-current" />
+                <span>Get 2026 Fees on WhatsApp</span>
+              </a>
+
               <Link
-                href="/contact#lead-form"
-                className="w-full sm:w-auto px-7 py-4 rounded-pill bg-brand hover:bg-brand-dark text-white font-heading font-extrabold text-base shadow-soft-subtle hover:shadow-floating transition-all flex items-center justify-center gap-2 group"
+                href="#lead-form"
+                className="w-full sm:w-auto px-7 py-4 bg-brand hover:bg-brand-dark text-white font-heading font-extrabold text-sm rounded-pill shadow-soft-subtle transition-all flex items-center justify-center gap-2 transform active:scale-95"
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar className="w-4 h-4" />
                 <span>Book a Free Visit</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
-
-              {/* Secondary CTA */}
-              <a
-                href={buildWhatsAppUrl("Assalam-o-Alaikum, I want to book a Trial Class for Rs 1,500.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-4 rounded-pill bg-surface hover:bg-surface/80 border border-brand/20 text-ink font-heading font-bold text-sm transition-all flex items-center justify-center gap-2"
-              >
-                <Sparkles className="w-4 h-4 text-honey-accent" />
-                <span>Trial Class — Rs 1,500</span>
-              </a>
             </div>
 
-            {/* Tertiary Lead Magnet Link */}
-            <div className="pt-1">
-              <a
-                href={buildWhatsAppUrl("Assalam-o-Alaikum, please send me the 2026 fee structure for your programs.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-text hover:underline"
-              >
-                <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
-                <span>Get 2026 fee structure sent directly to your WhatsApp &rarr;</span>
-              </a>
-            </div>
-
-            {/* Quick Micro-Trust Signals */}
-            <div className="pt-4 border-t border-surface flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-ink-muted font-medium">
-              <span className="flex items-center gap-1.5">
+            {/* Trust Badges Bar */}
+            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-ink-muted font-medium">
+              <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-teal-trust" />
-                Homely &amp; Attentive Environment
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Dumbbell className="w-4 h-4 text-brand" />
-                Daily Gymnastics &amp; Physical Play
-              </span>
+                <span>Model Town Branch</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-teal-trust" />
+                <span>10:1 Child to Teacher Ratio</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-teal-trust" />
+                <span>Ages 2 to 9 Years</span>
+              </div>
             </div>
+
           </div>
 
-          {/* Right Column: Visual Component Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none bg-white p-6 sm:p-8 rounded-card border border-surface shadow-floating space-y-6">
+          {/* Right Column: Real Photography Composition */}
+          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+            <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
               
-              {/* Card Header Badge */}
-              <div className="flex items-center justify-between border-b border-surface pb-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center">
-                    <Dumbbell className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-extrabold text-base text-ink">
-                      Active Early Years
-                    </h3>
-                    <p className="text-xs text-ink-muted">Early Childhood • Model Town</p>
-                  </div>
-                </div>
-                <span className="px-2.5 py-1 rounded-full bg-teal-trust/10 text-teal-trust font-bold text-xs">
-                  Now Enrolling
-                </span>
+              {/* Mat background */}
+              <div className="absolute inset-0 bg-surface/80 rounded-card transform rotate-1 scale-105" />
+
+              {/* Primary 4:5 Photo */}
+              <div className="relative z-10 rounded-card overflow-hidden shadow-floating border border-surface">
+                <MediaImage
+                  slot="hero-primary"
+                  aspectRatio="aspect-[4/5]"
+                  priority={true}
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  placeholderSubject="outdoor nature play"
+                />
               </div>
 
-              {/* Dynamic Feature Grid inside Card */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-surface p-3.5 rounded-xl space-y-1">
-                  <span className="text-xs font-bold text-brand block">🤸‍♂️ Kids Gym</span>
-                  <p className="text-[11px] text-ink-muted">Motor skills, core posture &amp; agility play</p>
-                </div>
-                <div className="bg-surface p-3.5 rounded-xl space-y-1">
-                  <span className="text-xs font-bold text-teal-trust block">🎨 Guided Learning</span>
-                  <p className="text-[11px] text-ink-muted">Activity-based learning &amp; early phonics</p>
-                </div>
-                <div className="bg-surface p-3.5 rounded-xl space-y-1">
-                  <span className="text-xs font-bold text-honey-accent block">🧸 Extended Care</span>
-                  <p className="text-[11px] text-ink-muted">After-school daycare till 5:00 PM</p>
-                </div>
-                <div className="bg-surface p-3.5 rounded-xl space-y-1">
-                  <span className="text-xs font-bold text-brand-dark block">🎓 School Prep</span>
-                  <p className="text-[11px] text-ink-muted">Prepared for top Lahore school admissions</p>
-                </div>
+              {/* Overlapping Secondary Image A (Top Right) */}
+              <div className="absolute -top-6 -right-6 z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-card overflow-hidden border-2 border-white shadow-floating hidden sm:block">
+                <MediaImage
+                  slot="hero-secondary-a"
+                  aspectRatio="aspect-square"
+                  sizes="150px"
+                  placeholderSubject="garden exploration"
+                />
               </div>
 
-              {/* Card Callout Footer */}
-              <div className="p-4 rounded-xl bg-brand/5 border border-brand/10 flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-bold text-ink">Campus Tour + Free Consultation</p>
-                  <p className="text-[11px] text-ink-muted">No charge, no commitment</p>
-                </div>
-                <Link
-                  href="/contact#lead-form"
-                  className="px-3.5 py-2 bg-brand text-white rounded-pill text-xs font-bold hover:bg-brand-dark transition-colors"
-                >
-                  Schedule
-                </Link>
+              {/* Overlapping Secondary Image B (Bottom Left) */}
+              <div className="absolute -bottom-6 -left-6 z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-card overflow-hidden border-2 border-white shadow-floating hidden sm:block">
+                <MediaImage
+                  slot="hero-secondary-b"
+                  aspectRatio="aspect-square"
+                  sizes="150px"
+                  placeholderSubject="creative learning"
+                />
               </div>
+
+              {/* Repositioned Floating Badge */}
+              <div className="absolute bottom-4 right-4 z-30 bg-white/95 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-surface shadow-card flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-brand animate-pulse" />
+                <span className="text-xs font-bold text-ink">Model Town Campus</span>
+              </div>
+
             </div>
           </div>
 

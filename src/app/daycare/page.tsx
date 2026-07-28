@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { Clock, ShieldCheck, Heart, Utensils, Moon, Smile, ArrowRight, MessageCircle, Calendar } from "lucide-react";
+import { Clock, ShieldCheck, Heart, Utensils, Moon, Smile, ArrowRight, MessageCircle, Calendar, Feather } from "lucide-react";
 import { BUSINESS, buildWhatsAppUrl } from "@/lib/constants";
 import { LeadForm } from "@/components/lead-form/LeadForm";
+import { MediaImage } from "@/components/media/MediaImage";
+import { VideoEmbed } from "@/components/media/VideoEmbed";
 
 export const metadata = {
   title: `Daycare in Model Town, Lahore | Extended Daycare for Working Parents`,
-  description: "Daycare in Model Town, Lahore. Safe, home-like environment, quiet rest routines, and supervised play till 5:00 PM.",
+  description: "Full-day daycare in Model Town, Lahore. Safe, home-like environment, quiet rest routines, daily 4:00 PM bird feeding, and supervised play till 5:00 PM.",
 };
 
 export default function DaycarePage() {
@@ -17,9 +19,9 @@ export default function DaycarePage() {
       color: "text-brand bg-brand/10",
     },
     {
-      icon: Utensils,
-      title: "Scheduled Snack & Rest Routines",
-      description: "Structured snack times and rest routines supervised by attentive caregivers.",
+      icon: Feather,
+      title: "Daily 4:00 PM Bird Feeding",
+      description: "Our signature afternoon moment — children feed birds and learn kindness towards nature and animals.",
       color: "text-teal-trust bg-teal-trust/10",
     },
     {
@@ -52,7 +54,7 @@ export default function DaycarePage() {
             </h1>
 
             <p className="text-base sm:text-lg text-ink-muted leading-relaxed">
-              Designed specifically for working parents in Lahore. Our extended daycare provides a nurturing, structured environment with quiet rest routines and active gym play until 5:00 PM.
+              Designed specifically for working parents in Lahore. Our daycare provides a nurturing environment with quiet rest routines, daily 4:00 PM bird feeding, and active gym play until 5:00 PM.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -76,34 +78,15 @@ export default function DaycarePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-card border border-surface shadow-floating space-y-6">
-            <div className="space-y-2 border-b border-surface pb-4">
-              <h3 className="font-heading font-extrabold text-xl text-ink">Daycare Quick Specs</h3>
-              <p className="text-xs text-ink-muted">Model Town Branch, Lahore</p>
-            </div>
-
-            <ul className="space-y-3 text-xs sm:text-sm text-ink font-medium">
-              <li className="flex justify-between py-2 border-b border-surface">
-                <span className="text-ink-muted">Age Group:</span>
-                <span className="font-bold">2 to 6 Years</span>
-              </li>
-              <li className="flex justify-between py-2 border-b border-surface">
-                <span className="text-ink-muted">Timings:</span>
-                <span className="font-bold text-brand">8:00 AM – 5:00 PM (Mon–Fri)</span>
-              </li>
-              <li className="flex justify-between py-2 border-b border-surface">
-                <span className="text-ink-muted">Days Open:</span>
-                <span className="font-bold">Monday to Friday (Closed Sat/Sun)</span>
-              </li>
-              <li className="flex justify-between py-2 border-b border-surface">
-                <span className="text-ink-muted">Location:</span>
-                <span className="font-bold text-teal-trust">Block D, Model Town, Lahore</span>
-              </li>
-              <li className="flex justify-between py-2">
-                <span className="text-ink-muted">Snacks &amp; Rest:</span>
-                <span className="font-bold">Included in Daily Routine</span>
-              </li>
-            </ul>
+          {/* Hero Daycare Photo */}
+          <div className="lg:col-span-5">
+            <MediaImage
+              slot="program-daycare"
+              aspectRatio="aspect-[4/3]"
+              priority={true}
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="rounded-card border border-surface shadow-floating"
+            />
           </div>
         </div>
 
@@ -123,8 +106,17 @@ export default function DaycarePage() {
           })}
         </div>
 
+        {/* Video Preview */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          <div className="text-center space-y-1">
+            <h3 className="font-heading font-extrabold text-2xl text-ink">See Our Daycare Facilities in Action</h3>
+            <p className="text-xs text-ink-muted">Watch how our toddlers enjoy their rest routines and outdoor play.</p>
+          </div>
+          <VideoEmbed title="Kids' Gym Daycare & Outdoor Play Video" />
+        </div>
+
         {/* Embedded Lead Form */}
-        <div className="max-w-3xl mx-auto pt-8">
+        <div className="max-w-3xl mx-auto pt-4">
           <LeadForm />
         </div>
 

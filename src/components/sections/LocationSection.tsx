@@ -1,5 +1,6 @@
 import { MapPin, Phone, Clock, ExternalLink, Navigation } from "lucide-react";
 import { BUSINESS, LAHORE_AREAS } from "@/lib/constants";
+import { MediaImage } from "@/components/media/MediaImage";
 
 export function LocationSection() {
   return (
@@ -19,8 +20,17 @@ export function LocationSection() {
             </h2>
 
             <p className="text-base text-ink-muted leading-relaxed">
-              Our branch is conveniently situated in Block D, Model Town — easily accessible for families across central and south Lahore.
+              Our branch is conveniently situated in Model Town — easily accessible for families across central and south Lahore.
             </p>
+
+            {/* Exterior Photo Preview */}
+            <div className="rounded-card overflow-hidden border border-surface shadow-card">
+              <MediaImage
+                slot="location-exterior"
+                aspectRatio="aspect-[16/9]"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
 
             {/* Address Card */}
             <div className="bg-surface p-6 rounded-card border border-brand/10 space-y-4">

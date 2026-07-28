@@ -36,3 +36,7 @@ export function trackViewProgram(programName: string) {
 export function trackGalleryOpen(imageId: string) {
   pushToDataLayer("gallery_open", { image_id: imageId });
 }
+
+export function trackVideoPlay(videoTitle: string) {
+  pushToDataLayer("video_play", { video_title: videoTitle });
+}

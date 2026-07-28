@@ -12,22 +12,18 @@ async function ensureDirs() {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   }
-  const consentedDir = path.join(SOURCE_DIR, "consented");
-  const noConsentDir = path.join(SOURCE_DIR, "no-consent");
-  if (!fs.existsSync(consentedDir)) fs.mkdirSync(consentedDir, { recursive: true });
-  if (!fs.existsSync(noConsentDir)) fs.mkdirSync(noConsentDir, { recursive: true });
 }
 
-function getSourceFiles(dir, category) {
+function getAllSourceFiles(dir) {
   if (!fs.existsSync(dir)) return [];
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   let files = [];
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      files = files.concat(getSourceFiles(fullPath, category));
+      files = files.concat(getAllSourceFiles(fullPath));
     } else if (/\.(jpg|jpeg|png|webp)$/i.test(entry.name)) {
-      files.push({ path: fullPath, filename: entry.name, consent: category === "consented" });
+      files.push({ path: fullPath, filename: entry.name });
     }
   }
   return files;
@@ -36,10 +32,7 @@ function getSourceFiles(dir, category) {
 async function processImages() {
   await ensureDirs();
 
-  const consentedFiles = getSourceFiles(path.join(SOURCE_DIR, "consented"), "consented");
-  const noConsentFiles = getSourceFiles(path.join(SOURCE_DIR, "no-consent"), "no-consent");
-  const allSourceFiles = [...consentedFiles, ...noConsentFiles];
-
+  const allSourceFiles = getAllSourceFiles(SOURCE_DIR);
   const generatedMediaMap = {};
 
   for (const fileObj of allSourceFiles) {
@@ -50,20 +43,17 @@ async function processImages() {
     const origWidth = metadata.width || 1200;
     const origHeight = metadata.height || 800;
 
-    // Generate blur placeholder
+    // Generate 16px base64 blur placeholder (stripping EXIF by default)
     const blurBuffer = await sharp(fileObj.path)
       .resize(16)
-      .withMetadata({ exif: false })
       .toBuffer();
     const blurDataURL = `data:image/${metadata.format || "jpeg"};base64,${blurBuffer.toString("base64")}`;
 
-    // Process output sizes
+    // Process output sizes & strip EXIF/GPS metadata (sharp strips metadata by default when converting)
     for (const width of WIDTHS) {
       if (width > origWidth) continue;
 
-      const resizedImage = sharp(fileObj.path)
-        .resize(width)
-        .withMetadata({ exif: false });
+      const resizedImage = sharp(fileObj.path).resize(width);
 
       // AVIF
       const avifPath = path.join(OUTPUT_DIR, `${nameWithoutExt}-${width}.avif`);

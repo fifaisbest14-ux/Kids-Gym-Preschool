@@ -2,21 +2,30 @@ export const BUSINESS = {
   name: "Kids' Gym Preschool & Daycare",
   nameRendered: "Kids’ Gym Preschool & Daycare",
   tagline: "Nature-Based Early Learning & Play-Led Preschool in Model Town, Lahore",
+  // Address B3 Note: Google Business Profile says Block D (Plot 132), owner website says Block J (Plot 134).
   address: "Plot # 132, 3, Block D, Model Town, Lahore 54700, Pakistan",
+  blockJAddress: "Plot # 134, Block J, Model Town, Lahore, Pakistan",
   coordinates: {
     lat: 31.4908916,
     lng: 74.320072,
   },
   placeId: "ChIJQVyf398FGTkRYjUeAYbeKnc",
   mapsLink: "https://maps.app.goo.gl/Euya2j2mbYaZQZ6Z9",
-  phoneDisplay: "0333 3138985",
+  phoneDisplay: "0333 313 8985",
   phoneE164: "+923333138985",
   whatsAppE164: "923333138985",
   hoursDisplay: "Mon-Fri 8:00am - 5:00pm | Sat & Sun CLOSED",
-  operatingSince: 2020,
+  // P1.4 / B4 Context: Owner's site says "Since 2013". Client input needed to confirm exact year.
+  operatingSince: "2013", 
   googleRating: 4.5,
   googleReviewCount: 35,
   childTeacherRatio: "10:1",
+  socials: {
+    instagram: "https://instagram.com/kidsgympreschooldaycare",
+    instagramAlt: "https://instagram.com/kidsgympreschool",
+    facebook: "https://facebook.com/kidsgympreschool",
+    linkedin: "https://linkedin.com/company/kids-gym",
+  },
 };
 
 export const LAHORE_AREAS = [
@@ -41,15 +50,6 @@ export type LahoreArea = typeof LAHORE_AREAS[number];
 
 export const PROGRAMS = [
   {
-    id: "infant-daycare",
-    title: "Infant Daycare",
-    age: "Contact for age details",
-    timing: "8:00 AM – 5:00 PM",
-    description: "Nurturing infant care focusing on sensory development, safe sleeping routines, and loving individual attention.",
-    badge: "Daycare",
-    highlights: ["Sensory exploration", "Attentive care routines"],
-  },
-  {
     id: "playgroup",
     title: "Playgroup",
     age: "2 – 3 yrs",
@@ -57,6 +57,7 @@ export const PROGRAMS = [
     description: "First step into social play, speech development, movement skills, and structured group activities.",
     badge: "Preschool",
     highlights: ["Speech & vocabulary growth", "Social interaction", "Daily kids gym sessions"],
+    slot: "program-playgroup" as const,
   },
   {
     id: "nursery",
@@ -66,6 +67,7 @@ export const PROGRAMS = [
     description: "Hands-on guided learning, early phonics, creative arts, and gross motor skill refinement.",
     badge: "Preschool",
     highlights: ["Early phonics & counting", "Hands-on activity stations", "Gymnastics & coordination"],
+    slot: "program-nursery" as const,
   },
   {
     id: "prep-kg",
@@ -75,35 +77,49 @@ export const PROGRAMS = [
     description: "Comprehensive kindergarten readiness feeding directly into top Lahore formal school admissions.",
     badge: "Preschool",
     highlights: ["School admission preparation", "Reading & math foundations", "Leadership & confidence"],
+    slot: "program-prep-kg" as const,
+  },
+  {
+    id: "after-school",
+    title: "After-School Primary Support",
+    age: "5 – 9 yrs",
+    timing: "Afternoon session (till 5:00 PM)",
+    description: "Supervised homework guidance, reading time, and structured physical activities for primary age children.",
+    badge: "After-School",
+    highlights: ["Homework guidance", "Reading & focus routine", "Active indoor/outdoor play"],
+    slot: "program-after-school" as const,
   },
   {
     id: "daycare-extended",
-    title: "Daycare (Extended)",
-    age: "2 – 6 yrs",
-    timing: "After-preschool wraparound (till 5:00 PM)",
-    description: "Safe, home-like after-school environment with rest routines and supervised play.",
-    badge: "Wraparound Care",
-    highlights: ["Rest & snack routines", "Supervised free play", "Peace of mind for working parents"],
+    title: "Full-Day Daycare",
+    age: "2 – 9 yrs",
+    timing: "Full Day (8:00 AM – 5:00 PM)",
+    description: "Safe, home-like daycare environment with quiet rest routines, healthy lunch time, and daily 4:00 PM bird feeding.",
+    badge: "Full Daycare",
+    highlights: ["Quiet rest & lunch routines", "4:00 PM bird feeding", "Complete peace of mind"],
+    slot: "program-daycare" as const,
   },
   {
-    id: "kids-gym",
-    title: "Kids Gym",
-    age: "1 – 8 yrs",
-    timing: "Integrated & Standalone Classes",
-    description: "Our signature physical development program using child-safe play apparatus to build strength & posture.",
-    badge: "Signature Gym",
-    highlights: ["Physical play apparatus", "Posture & core strength", "Boosts confidence & focus"],
+    id: "nature-programme",
+    title: "Nature & Outdoor Discovery",
+    age: "2 – 9 yrs (All Ages)",
+    timing: "Integrated Daily Sessions",
+    description: "Hands-on interaction with sand, soil, plants, water play, and animal feeding to nurture curiosity.",
+    badge: "Nature Focus",
+    highlights: ["Outdoor sand & water play", "Planting & soil exploration", "Kindness to animals"],
+    slot: "program-nature" as const,
   },
 ] as const;
 
 export const CHILD_AGE_OPTIONS = [
-  "Under 1",
-  "1–2",
-  "2–3",
-  "3–4",
-  "4–5",
-  "5–6",
-  "6+",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
 ] as const;
 
 export function buildWhatsAppUrl(contextMessage?: string): string {
