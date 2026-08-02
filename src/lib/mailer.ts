@@ -10,12 +10,15 @@ export interface LeadEmailPayload {
   area: string;
   preferred_time?: string | null;
   message?: string | null;
+  utm_source?: string | null;
+  utm_campaign?: string | null;
+  gclid?: string | null;
 }
 
 export async function sendLeadEmail(lead: LeadEmailPayload): Promise<boolean> {
   const smtpUser = process.env.GMAIL_SMTP_USER || "fifaisbest14@gmail.com";
   const smtpPass = process.env.GMAIL_SMTP_APP_PASSWORD;
-  const toInbox = process.env.LEAD_DELIVERY_INBOX || "fifaisbest14@gmail.com";
+  const toInbox = process.env.LEAD_DELIVERY_INBOX || "fifaisbest14@gmail.com, kidsgympk@gmail.com";
 
   if (!smtpPass) {
     console.warn("[Mailer Warning] GMAIL_SMTP_APP_PASSWORD is not set. Skipping real SMTP email sending.");
@@ -91,6 +94,16 @@ export async function sendLeadEmail(lead: LeadEmailPayload): Promise<boolean> {
               ? `<tr>
                   <td style="padding: 8px; border-bottom: 1px solid #FFF4E6; font-weight: bold; color: #2C2418;">Email:</td>
                   <td style="padding: 8px; border-bottom: 1px solid #FFF4E6; color: #2C2418;">${lead.email}</td>
+                </tr>`
+              : ""
+          }
+          ${
+            lead.gclid || lead.utm_source
+              ? `<tr>
+                  <td style="padding: 8px; border-bottom: 1px solid #FFF4E6; font-weight: bold; color: #2C2418;">Ad Channel:</td>
+                  <td style="padding: 8px; border-bottom: 1px solid #FFF4E6; color: #E8622C; font-weight: bold;">
+                    ${lead.gclid ? "🎯 Google Ads (GCLID captured)" : lead.utm_source}
+                  </td>
                 </tr>`
               : ""
           }

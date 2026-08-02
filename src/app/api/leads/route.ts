@@ -64,6 +64,7 @@ export async function POST(request: Request) {
     const ipHash = crypto.createHash("sha256").update(clientIp).digest("hex");
 
     // 4. Insert into Supabase `leads` table
+    let dbSuccess = false;
     try {
       const { error: dbError } = await supabaseAdmin.from("leads").insert({
         parent_name: leadData.parent_name,
@@ -91,35 +92,76 @@ export async function POST(request: Request) {
 
       if (dbError) {
         console.error("[Supabase Insert Error]", dbError.message);
+      } else {
+        dbSuccess = true;
       }
     } catch (dbEx) {
       console.error("[Supabase Exception]", dbEx);
     }
 
-    // 5. Send Lead Email via Nodemailer (Gmail SMTP to owner)
-    sendLeadEmail({
-      parent_name: leadData.parent_name,
-      whatsapp: leadData.whatsapp,
-      email: leadData.email,
-      child_age: leadData.child_age,
-      programs: leadData.programs,
-      area: leadData.area,
-      preferred_time: leadData.preferred_time,
-      message: leadData.message,
-    }).catch((err) => console.error("[Background Email Error]", err));
+    // 5. Build task promises for Email, Google Sheets Webhook, and Meta CAPI
+    const tasks: Promise<any>[] = [];
 
-    // 6. Dispatch Meta Conversions API (CAPI)
-    sendMetaCAPILead({
-      event_id: eventId,
-      whatsapp: leadData.whatsapp,
-      email: leadData.email,
-      client_ip: clientIp,
-      user_agent: userAgent,
-    }).catch((err) => console.error("[Background Meta CAPI Error]", err));
+    // Email Task (Gmail SMTP)
+    tasks.push(
+      sendLeadEmail({
+        parent_name: leadData.parent_name,
+        whatsapp: leadData.whatsapp,
+        email: leadData.email,
+        child_age: leadData.child_age,
+        programs: leadData.programs,
+        area: leadData.area,
+        preferred_time: leadData.preferred_time,
+        message: leadData.message,
+        utm_source: leadData.utm_source,
+        utm_campaign: leadData.utm_campaign,
+        gclid: leadData.gclid,
+      })
+    );
+
+    // Google Sheets Webhook Task (if configured in env)
+    const googleSheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    if (googleSheetsWebhookUrl) {
+      tasks.push(
+        fetch(googleSheetsWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            timestamp: new Date().toISOString(),
+            parent_name: leadData.parent_name,
+            whatsapp: leadData.whatsapp,
+            email: leadData.email || "",
+            child_age: leadData.child_age,
+            programs: leadData.programs.join(", "),
+            area: leadData.area,
+            preferred_time: leadData.preferred_time || "",
+            message: leadData.message || "",
+            gclid: leadData.gclid || "",
+            utm_source: leadData.utm_source || "",
+            utm_campaign: leadData.utm_campaign || "",
+          }),
+        }).catch((err) => console.error("[Google Sheets Webhook Error]", err))
+      );
+    }
+
+    // Meta CAPI Task
+    tasks.push(
+      sendMetaCAPILead({
+        event_id: eventId,
+        whatsapp: leadData.whatsapp,
+        email: leadData.email,
+        client_ip: clientIp,
+        user_agent: userAgent,
+      })
+    );
+
+    // 6. Await all async tasks to prevent Vercel serverless freeze
+    await Promise.allSettled(tasks);
 
     return NextResponse.json({
       success: true,
       event_id: eventId,
+      db_status: dbSuccess ? "saved" : "error_logged",
       message: "Lead submitted successfully",
     });
   } catch (error: any) {
